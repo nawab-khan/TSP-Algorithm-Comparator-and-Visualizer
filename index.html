@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSP Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Travelling Salesperson Visualizer</h1>
+
+    <div id="controls">
+        <div class="control-group">
+            <label for="algorithm-select">Choose Algorithm:</label>
+            <select id="algorithm-select">
+                <option value="nearest_neighbor">Nearest Neighbor</option>
+                <option value="two_optimal_swap">2-Optimal Swap (with NN start)</option>
+                <option value="genetic_algo">Genetic Algorithm</option>
+                <option value="christofides_algo">Christofides Algorithm</option>
+                <option value="brute_force">Brute Force (≤ 9 cities)</option>
+            </select>
+        </div>
+        
+    <div class="control-group">
+        <label for="city-input">Number of Cities:</label>
+        <input type="number" id="city-input" value="8" min="4" max="100">
+    </div>
+
+    <div id="ga-controls" style="display: none;">
+        <div class="control-group">
+            <label for="population-input">Population Size:</label>
+            <input type="number" id="population-input" value="200" min="50" max="1000">
+        </div>
+        <div class="control-group">
+            <label for="mutation-input">Mutation Rate (%):</label>
+            <input type="number" id="mutation-input" value="1" min="1" max="50">
+        </div>
+    </div>
+
+        <div class="control-group buttons">
+            <button id="start-btn">Start</button>
+            <button id="reset-btn">Reset Cities</button>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+    
+    <div id="results">
+        <h2>Results</h2>
+        <p><strong>Algorithm:</strong> <span id="result-algo-name">N/A</span></p>
+        <p><strong>Best Distance:</strong> <span id="result-distance">N/A</span></p>
+        <p><strong></strong> <span id="result-time">N/A</span></p>
+    </div>
+
+    <script src="lib/p5.min.js"></script>
+    
+    <script src="utils.js"></script>
+    <script src="algorithms/brute_force.js"></script>
+    <script src="algorithms/nearest_neighbor.js"></script>
+    <script src="algorithms/two_optimal_swap.js"></script>
+    <script src="algorithms/genetic_algo.js"></script>
+    <script src="algorithms/christofides_algo.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
